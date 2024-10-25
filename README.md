@@ -192,22 +192,74 @@ Console.WriteLine($"Min : {min} and Max : {max}");
 ### 1. Sum or not?
 Create a method that takes two integers as parameters and returns their sum.
 
+```csharp
+[Test]
+public void Test_Sum()
+{
+    Assert.That(Methods.Solution.Sum(2,5), Is.EqualTo(7));
+}
+```
+
 ### 2. Who's ?
 Create a method that takes three parameters: first name, last name, and age. The method should return a string that combines this information in a sentence.
+
+```csharp
+[Test]
+public void Test_Whos()
+{
+    Assert.That(Methods.Solution.Whos("John","Doe",23), Is.EqualTo("Firstname : John\nLastname : Doe\nAge : 23"));
+}
+```
 
 ### 3. Sum and product
 
 Create a method that calculates both the sum and the product of two numbers. Use out parameters to return multiple values.
 
+```csharp
+[Test]
+public void SumAndProduct_ShouldReturnCorrectSumAndProduct()
+{
+    int sum, product;
+    Methods.Solution.SumAndProduct(3, 4, out sum, out product);
+
+    Assert.AreEqual(7, sum, "The sum of 3 and 4 should be 7.");
+    Assert.AreEqual(12, product, "The product of 3 and 4 should be 12.");
+}
+```
+
 ### 4. Sum and product again
 
 Create a method that returns two values in the form of a tuple: the quotient and the remainder of an integer division.
 
+```csharp
+[Test]
+public void QuotientAndRemainder_ShouldReturnCorrectQuotientAndRemainder()
+{
+    var result = Methods.Solution.QuotientAndRemainder(10, 3);
+
+    Assert.AreEqual(3, result.quotient, "The quotient of 10 divided by 3 should be 3.");
+    Assert.AreEqual(1, result.remainder, "The remainder of 10 divided by 3 should be 1.");
+}
+```
+
 ### 5. Method with a Default Value
 
 Create a method that takes a parameter with a default value. If the user does not provide a value, the method will use the default value.
-## Next
 
-[9.Arrays](9.Arrays.md)
+```csharp
+[Test]
+public void MethodWithDefaultValue_ShouldReturnDoubleOfProvidedValue()
+{
+    int result = Methods.Solution.MethodWithDefaultValue(5);
+    Assert.AreEqual(10, result, "The result with a value of 5 should be 10.");
+}
+
+[Test]
+public void MethodWithDefaultValue_ShouldReturnDoubleOfDefaultValue_WhenNoValueIsProvided()
+{
+    int result = Methods.Solution.MethodWithDefaultValue();
+    Assert.AreEqual(20, result, "The result with no provided value should be 20 (10 by default multiplied by 2).");
+}
+```
 
 ![](https://media1.tenor.com/m/QdAU5GjF5wsAAAAC/brain-explosion.gif)

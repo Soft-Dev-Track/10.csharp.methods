@@ -8,6 +8,6 @@ namespace Methods
 {
     public class Solution
     {
-
+      //
     }
 }
